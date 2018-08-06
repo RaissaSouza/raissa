@@ -2,7 +2,6 @@ package br.com.raissasouza.raissasouza.controllers;
 
 import br.com.raissasouza.raissasouza.model.Jogador;
 import br.com.raissasouza.raissasouza.repository.JogadorRepository;
-import javax.validation.Valid;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.xml.sax.SAXException;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -55,7 +56,7 @@ public class JogadorController {
         if(!getAvailableCodinome(codinomes, storedJogadores).isEmpty()){
             jogador.setCodinome(getAvailableCodinome(codinomes, storedJogadores));
             jr.save(jogador);
-            attributes.addFlashAttribute("message","Salvo com sucesso!");
+            attributes.addFlashAttribute("message","Jogador salvo com sucesso!");
         }else{
             attributes.addFlashAttribute("message","Não há codinomes dísponiveis para esse grupo!");
         }
