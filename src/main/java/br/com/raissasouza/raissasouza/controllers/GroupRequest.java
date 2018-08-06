@@ -25,6 +25,8 @@ import java.util.List;
 @Controller
 public class GroupRequest {
 
+    final Integer STATUS_OK=200;
+
     public String getGroupInfo(String requestUrl){
         HttpURLConnection connection = null;
         String inputLine;
@@ -32,15 +34,14 @@ public class GroupRequest {
 
         try {
             URL url = new URL(requestUrl);
-            // Make connection
+            // connection
             connection = (HttpURLConnection) url.openConnection();
-            // Set request type as HTTP GET
+            // HTTP request type GET
             connection.setRequestMethod("GET");
-            if (connection.getResponseCode()==200) {
+            if (connection.getResponseCode()==STATUS_OK) { //success
                 // get response stream
-                BufferedReader in = new BufferedReader(
-                        new InputStreamReader(connection.getInputStream()));
-                // feed response into the StringBuilder
+                BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                // add response into the StringBuilder
                 while ((inputLine = in.readLine()) != null) {
                     response.append(inputLine);
                 }
@@ -54,6 +55,7 @@ public class GroupRequest {
     }
 
     public List getVingadores(String pageInfo) throws JSONException {
+        //create json Obj
         JSONObject obj = new JSONObject(pageInfo);
         // get Array type
         JSONArray vingadores = obj.getJSONArray("vingadores");
@@ -66,12 +68,16 @@ public class GroupRequest {
     }
 
     public List getLigaDaJustica(String pageInfo) throws ParserConfigurationException, IOException, SAXException {
+        // create builder doc
         DocumentBuilderFactory f = DocumentBuilderFactory.newInstance();
         DocumentBuilder b = f.newDocumentBuilder();
+        // parse the input in UTF-8
         Document doc = b.parse(new ByteArrayInputStream(pageInfo.getBytes("UTF-8")));
+        // get the node called codinomes
         NodeList codinomes = doc.getElementsByTagName("codinomes");
+        // get the first element
         Element codinome = (Element) codinomes.item(0);
-        NodeList cod = codinome.getChildNodes();
+        //extract codinomes to a list
         List<String> ligaDaJustica = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
              Node cod1 = codinome.getElementsByTagName("codinome").item(i);

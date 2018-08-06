@@ -3,6 +3,7 @@ package br.com.raissasouza.raissasouza.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
 /**
  * Created by 12147 on 8/2/2018.
@@ -13,7 +14,9 @@ public class Jogador {
     @Id
     @GeneratedValue
     private long id;
+    @NotEmpty
     private String nome;
+    @NotEmpty
     private String email;
     private String telefone;
     private String codinome;
@@ -66,4 +69,6 @@ public class Jogador {
     public void setGrupo(String grupo) {
         this.grupo = grupo;
     }
+
+
 }

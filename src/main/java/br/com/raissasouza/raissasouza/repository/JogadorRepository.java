@@ -7,7 +7,5 @@ import java.util.List;
 
 public interface JogadorRepository extends CrudRepository<Jogador, String> {
 
-    List<Jogador> findByNome(String nome);
-    List<Jogador> findByEmail(String email);
     List<Jogador> findByGrupo(String grupo);
 }
