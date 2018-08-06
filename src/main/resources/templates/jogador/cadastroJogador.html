@@ -12,7 +12,7 @@
 
 <div class="container">
     <h2>Cadastro</h2>
-    <form action="/action_page.php" method="post">
+    <form action="/cadastrar" method="post">
         <div class="form-group">
             <label for="nome">Nome:</label>
             <input type="nome" class="form-control" id="nome" placeholder="Entre o nome" name="nome">
@@ -22,17 +22,17 @@
             <input type="email" class="form-control" id="email" placeholder="Entre o email" name="email">
         </div>
         <div class="form-group">
-            <label for="tel">Telefone:</label>
-            <input type="telefone" class="form-control" id="tel" placeholder="Entre o telefone" name="tel">
+            <label for="telefone">Telefone:</label>
+            <input type="text" class="form-control" id="telefone" placeholder="Entre o telefone" name="telefone">
         </div>
         <div>
             <h3>Quero ser:</h3>
         </div>
         <div class="radio">
-            <label><input type="radio" name="optradio" checked>Os Vingadores</label>
+            <label><input type="radio" name="grupo" value="vingadores" checked>Os Vingadores</label>
         </div>
         <div class="radio">
-            <label><input type="radio" name="optradio">A Liga da Justiça</label>
+            <label><input type="radio" name="grupo" value="ligaDaJustica">A Liga da Justiça</label>
         </div>
         <button type="submit" class="btn btn-default">Salvar</button>
         <button type="submit" class="btn btn-default">Listar Jogadores</button>
