@@ -11,7 +11,7 @@
 <body>
 
 <div class="container">
-    <h2>Cadastro</h2>
+    <h2>Cadastro do Jogador UOL</h2>
     <div class="alert alert-info alert-dismissable"  role="alert" th:if="${not #strings.isEmpty(message)}">
         <span th:text="${message}"></span>
     </div>
@@ -35,7 +35,7 @@
             <label><input type="radio" name="grupo" value="vingadores" checked>Os Vingadores</label>
         </div>
         <div class="radio">
-            <label><input type="radio" name="grupo" value="ligaDaJustica">A Liga da Justiça</label>
+            <label><input type="radio" name="grupo" value="liga da justica">A Liga da Justiça</label>
         </div>
         <button id="submit-button" type="submit" class="btn btn-default">Salvar</button>
         <a href="jogador/listaJogadores" class="btn btn-default" role="button">Listar Jogadores</a>
